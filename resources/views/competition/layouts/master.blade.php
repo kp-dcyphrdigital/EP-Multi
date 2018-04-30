@@ -1,0 +1,6 @@
+@include('competition.layouts.header')
+@include('competition.layouts.nav')
+@include('competition.layouts.banner')
+@yield('content')
+@include('competition.layouts.sidebar')
+@include('competition.layouts.footer')

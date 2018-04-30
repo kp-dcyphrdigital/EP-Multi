@@ -17,6 +17,11 @@ class CreateCompetitionsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->string('banner');
+            $table->string('cta');
+            $table->text('description');
+            $table->longText('terms');
+            $table->longText('faqs');
             $table->timestamps();
         });
     }

@@ -17,7 +17,27 @@ class CompetitionsController extends Controller
     public function index(Competition $competition)
     {
         $entries = $competition->entries()->where('approved', 1)->inRandomOrder()->take(18)->get();
-        return view( 'competitions.index', compact('entries') );      
+        return view( 'competition.index', compact('entries', 'competition') );      
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function faqs(Competition $competition)
+    {
+        return view( 'competition.faqs', compact('competition') );      
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function terms(Competition $competition)
+    {
+        return view( 'competition.terms', compact('competition') );      
     }
 
 }
