@@ -23,6 +23,10 @@ class CreateEntriesTable extends Migration
             $table->string('url');
             $table->boolean('approved')->default(false);
             $table->timestamps();
+
+            $table->foreign('competition_id')
+                ->references('id')->on('competitions')
+                ->onDelete('cascade');
         });
     }
     /**

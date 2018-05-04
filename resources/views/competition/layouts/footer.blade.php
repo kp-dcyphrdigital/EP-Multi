@@ -2,10 +2,7 @@
 
     <footer class="text-muted">
       <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>&copy; SYG Interactive Pty Ltd</p>
+        <p>&copy; <a href="http://www.syginteractive.com.au">SYG Interactive Pty Ltd</a></p>
       </div>
     </footer>
   </body>

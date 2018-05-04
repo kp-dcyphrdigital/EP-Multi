@@ -15,13 +15,12 @@ class CreateCompetitionsTable extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug')->unique();
             $table->string('name');
-            $table->string('slug');
             $table->string('banner');
             $table->string('cta');
             $table->text('description');
             $table->longText('terms');
-            $table->longText('faqs');
             $table->timestamps();
         });
     }
@@ -34,5 +33,6 @@ class CreateCompetitionsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('competitions');
+        array_map('unlink', glob( base_path() . "/storage/app/public/images/*.*"));
     }
 }

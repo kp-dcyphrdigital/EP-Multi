@@ -11,7 +11,7 @@
 </head>
 <body style="height: 100%; display: flex; align-items: center; justify-content: center;">
 	<div style="width: 800px; text-align: center;">
-	    <h1>Looking for one of these promotions?</h1>
+	    <h1>Sorry that entry is not available, please click below to go to the promotion you are looking for</h1>
 	    @foreach ($competitions as $competition)
 	        <p><a href="/{{ $competition->slug }}">{{ $competition->name }}</a></p>
 	    @endforeach

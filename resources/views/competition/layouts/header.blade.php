@@ -5,8 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ENTREZO Promotions V2</title>
-        <link rel="icon" href="favicon.ico">
         <!-- CSS -->
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">
+        <link rel="icon" href="/favicon.ico">
+
+        @yield('head')
+
     </head>
     <body>

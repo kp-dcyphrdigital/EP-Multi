@@ -24,6 +24,12 @@ class Competition extends Model
     }
 
     // Competition to Entry Relationship
+    public function faqs()
+    {
+        return $this->hasMany(FAQ::class);
+    }
+
+    // Competition to Entry Relationship
     public function entries()
     {
         return $this->hasMany(Entry::class);

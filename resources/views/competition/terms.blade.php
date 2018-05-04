@@ -1,9 +1,9 @@
 @extends('competition.layouts.master')
 @section('content')
-            <div class="content">
-                <div class="title m-b-md">
-                    Entries
-                </div>
+            <div class="container p-3">
+                <h1>
+                    Terms and Conditions
+                </h1>
                 <div>
                     {{ $competition->terms }}
                 </div>

@@ -16,7 +16,12 @@ class CompetitionsController extends Controller
      */
     public function index(Competition $competition)
     {
-        $entries = $competition->entries()->where('approved', 1)->inRandomOrder()->take(18)->get();
+        $entries = $competition->entries()
+                        ->where('approved', 1)
+                        // ->inRandomOrder()
+                        ->latest()
+                        ->take(18)
+                        ->get();
         return view( 'competition.index', compact('entries', 'competition') );      
     }
 
@@ -27,7 +32,8 @@ class CompetitionsController extends Controller
      */
     public function faqs(Competition $competition)
     {
-        return view( 'competition.faqs', compact('competition') );      
+        $faqs = $competition->faqs;
+        return view( 'competition.faqs', compact('competition', 'faqs') );      
     }
 
     /**

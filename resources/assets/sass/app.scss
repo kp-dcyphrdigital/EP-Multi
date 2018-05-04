@@ -1,6 +1,5 @@
-
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:100,600");
+@import url("https://fonts.googleapis.com/css?family=Karla:400,700");
 
 // Variables
 @import "variables";
@@ -10,6 +9,10 @@
 
 :root {
   --jumbotron-padding-y: 3rem;
+}
+
+nav.navbar {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .jumbotron {
@@ -48,3 +51,18 @@ footer p {
 }
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.invalid-feedback {
+  display: block;
+}
+
+.jumbotron .container {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    padding: 2em;
+}
+
+.card {
+    margin-top: 10px;
+}
