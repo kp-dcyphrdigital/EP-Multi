@@ -5,7 +5,7 @@
                     Terms and Conditions
                 </h1>
                 <div>
-                    {{ $competition->terms }}
+                    {!! $competition->terms !!}
                 </div>
             </div>
 @endsection
