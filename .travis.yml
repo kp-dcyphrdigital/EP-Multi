@@ -9,6 +9,12 @@ before_script:
   - composer install --no-interaction
   - php artisan key:generate
 
+before_install:
+  - mysql -e 'CREATE DATABASE epv2_testing;'
+  
+services:
+  - mysql
+
 cache:
   directories:
     - vendor
