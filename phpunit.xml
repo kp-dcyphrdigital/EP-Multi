@@ -25,6 +25,8 @@
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="DB_DATABASE" value="epv2_testing"/>
+        <env name="DB_USERNAME" value="root"/>
+        <env name="DB_PASSWORD" value=""/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
