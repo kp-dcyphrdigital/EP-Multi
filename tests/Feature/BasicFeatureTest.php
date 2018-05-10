@@ -200,6 +200,10 @@ class BasicFeatureTest extends TestCase
     /** @test */
     function test_entry_requires_recaptcha_verification()
     {
+        if (Recaptcha::isInTestMode()) {
+            $this->markTestSkipped("Recaptcha is in test mode.");
+        }
+        
         $this->withExceptionHandling();
         unset(app()[Recaptcha::class]);
         $this->submitEntry()
