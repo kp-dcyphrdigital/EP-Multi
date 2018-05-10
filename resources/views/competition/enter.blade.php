@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="form-group">
-                      <div class="g-recaptcha" data-sitekey="6LdoZ1MUAAAAABeYf0tbVhAAGYSmvTnPjXXFJm0y"></div>
+                      <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.key') }}"></div>
                       @if ( $errors->has('g-recaptcha-response') )
                         <div class="invalid-feedback">The recaptcha verification failed. Try again.</div>
                       @endif
