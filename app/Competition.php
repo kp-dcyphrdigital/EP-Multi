@@ -22,7 +22,7 @@ class Competition extends Model
     {
         return $this->belongsToMany(User::class);
     }
-
+    
     // Competition to Entry Relationship
     public function faqs()
     {

@@ -205,6 +205,7 @@ class BasicFeatureTest extends TestCase
         }
         
         $this->withExceptionHandling();
+        
         unset(app()[Recaptcha::class]);
         $this->submitEntry()
             ->assertSessionHasErrors('g-recaptcha-response');

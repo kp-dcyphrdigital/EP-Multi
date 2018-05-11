@@ -3,7 +3,7 @@
           <h1 class="jumbotron-heading">{{ $competition->name }}</h1>
           <p class="lead">{{ $competition->cta }}</p>
           <p>
-            <a href="#" class="btn btn-lg btn-info my-2">Enter Now</a>
+            <a href="/{{ $competition->slug }}/enter" class="btn btn-lg btn-info my-2">Enter Now</a>
           </p>
         </div>
       </section>

@@ -6,7 +6,7 @@
                 </h1>
                 @foreach ($faqs as $faq)
 					<div class="card">
-					  <div class="card-header">
+					  <div class="card-header bg-warning">
 					    {{ $faq->question }}
 					  </div>
 					  <div class="card-body">

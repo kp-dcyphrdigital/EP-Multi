@@ -90,7 +90,7 @@ return [
     | the language folders that are provided through your application.
     |
     */
-
+    'faker_locale' => 'en_AU',
     'fallback_locale' => 'en',
 
     /*
