@@ -10,6 +10,7 @@
                     @endif
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
+                    <th scope="col">Approved</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -20,6 +21,13 @@
                     <td>{{ $entry->firstname }} {{ $entry->lastname }}</td>
                     <td>{{ $entry->email }}</td>
                     <td>{{ $entry->telephone }}</td>
+                    <td>
+                      @if ($entry->approved === 1)
+                      <div style="font-size:1em; color:Green">
+                        <i class="fas fa-check-circle"></i>
+                      </div>
+                      @endif
+                    </td>
                     <td><a href="/admin/entries/{{ $entry->id }}">View</a></td>
                   </tr>
                   @endforeach

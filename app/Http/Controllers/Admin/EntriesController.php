@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Entry;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use SYG\EntriesReportHTMLFormatter;
 
 class EntriesController extends Controller
 {
@@ -23,22 +24,11 @@ class EntriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Entry $entry, EntriesReportHTMLFormatter $formatter)
     {
-        $order = request('sort') == 'firstname' ? 'firstname' : 'id';
-        $q = request('q');
-        $approved = request('approved') == 1 ? [1] : [0,1];
-        $entries = Entry::wherein( 'competition_id', auth()->user()->competitions()->pluck('id') )
-                    ->wherein('approved', $approved)
-                    ->where(function ($query) use ($q) {
-                        $query->where( 'firstname', 'like', "%$q%" )
-                            ->orWhere('lastname', 'like', "%$q%" )
-                            ->orWhere('email', 'like', "%$q%" )
-                            ->orWhere('telephone', 'like', "%$q%" );
-                    })
-                    ->orderBy($order)
-                    ->get();
-        return view( 'admin.entries', compact('entries') );
+        $competitions = auth()->user()->competitions()->get();
+        $entries = $entry->getFilteredEntries($competitions, $formatter);
+        return view( 'admin.entries', compact('entries', 'competitions') );
     }
 
     /**

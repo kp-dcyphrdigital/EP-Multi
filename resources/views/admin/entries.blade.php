@@ -11,6 +11,7 @@
               </div>            
             @else
             	@include('admin.partials.todo')
+                {{ $entries->appends( request()->only(['q', 'approved', 'competition']) )->links() }}
             @endif
         </div>
     </div>

@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $competitions = Competition::wherein( 'id', auth()->user()->competitions()->pluck('id') )
+        $competitions = Competition::wherein( 'id', $competitionIDs = auth()->user()->competitions()->pluck('id') )
                             ->select('name')->withCount([
                                 'entries',
                                 'entries as approved_entries_count' => function ($query) {
@@ -37,7 +37,7 @@ class HomeController extends Controller
                             ])->get();
 
         $entries = Entry::where('approved', 0)
-                    ->wherein( 'competition_id', auth()->user()->competitions()->pluck('id') )
+                    ->wherein( 'competition_id', $competitionIDs )
                     ->get();
                     
         return view( 'admin.home', compact('competitions', 'entries') );
