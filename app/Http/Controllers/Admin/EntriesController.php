@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Entry;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use SYG\EntriesReportHTMLFormatter;
 
 class EntriesController extends Controller
 {
@@ -24,11 +23,24 @@ class EntriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Entry $entry, EntriesReportHTMLFormatter $formatter)
+    public function index(Entry $entry)
     {
         $competitions = auth()->user()->competitions()->get();
-        $entries = $entry->getFilteredEntries($competitions, $formatter);
+        $entries = $entry->getFilteredEntries($competitions)->paginate();
         return view( 'admin.entries', compact('entries', 'competitions') );
+    }
+
+    /**
+     * CSV export a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function export(Entry $entry)
+    {
+        $competitions = auth()->user()->competitions()->get();
+        $entries = $entry->getFilteredEntries($competitions);
+        $export = new \App\Exports\EntriesExport($entries);
+        return \Excel::download($export, 'entries.csv');
     }
 
     /**

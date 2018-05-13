@@ -16,6 +16,7 @@ Route::post('/admin/password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/admin/home', 'HomeController@index')->name('home');
 Route::get('admin/entries', 'Admin\EntriesController@index');
+Route::get('admin/entries/csv', 'Admin\EntriesController@export');
 Route::get('admin/entries/{entry}', 'Admin\EntriesController@edit')->middleware('can:update,entry');
 Route::patch('admin/entries/{entry}', 'Admin\EntriesController@update')->middleware('can:update,entry');;
 

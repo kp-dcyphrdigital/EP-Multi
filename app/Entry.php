@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use SYG\EntriesReportFormatterInterface;
 
 class Entry extends Model
 {
@@ -23,7 +22,7 @@ class Entry extends Model
     	]);
     }
 
-    public function getFilteredEntries($competitions, EntriesReportFormatterInterface $formatter)
+    public function getFilteredEntries($competitions)
     {
         $competitionIDs = $competitions->pluck('id')->search( request('competition') ) === false ? $competitions->pluck('id') : [ request('competition') ];
 
@@ -39,17 +38,16 @@ class Entry extends Model
            $approved = [0,1];
         }
         
-        return $formatter->output( 
-                                $this->wherein( 'competition_id', $competitionIDs )
-                                    ->wherein('approved', $approved)
-                                    ->where(function ($query) use ($q) {
-                                        $query->where( 'firstname', 'like', "%$q%" )
-                                        ->orWhere('lastname', 'like', "%$q%" )
-                                        ->orWhere('email', 'like', "%$q%" )
-                                        ->orWhere('telephone', 'like', "%$q%" );
-                                        })
-                                        ->orderBy($sort)
-                            );
+        return $this->wherein( 'competition_id', $competitionIDs )
+                    ->wherein('approved', $approved)
+                    ->where(function ($query) use ($q) {
+                        $query->where( 'firstname', 'like', "%$q%" )
+                        ->orWhere('lastname', 'like', "%$q%" )
+                        ->orWhere('email', 'like', "%$q%" )
+                        ->orWhere('telephone', 'like', "%$q%" );
+                        })
+                        ->orderBy($sort)
+                ;
     }
 
 }
