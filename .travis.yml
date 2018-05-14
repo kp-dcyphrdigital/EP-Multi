@@ -6,8 +6,10 @@ php:
 
 before_script:
   - cp .env.travis .env
+  - mkdir storage/app/public/images
   - composer install --no-interaction
   - php artisan key:generate
+  - php artisan storage:link
 
 before_install:
   - mysql -e 'CREATE DATABASE epv2_testing;'
