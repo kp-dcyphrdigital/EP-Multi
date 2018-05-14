@@ -165,6 +165,18 @@ class BasicFeatureTest extends TestCase
     }
 
    /**
+     * First name should be atleast 2 characters
+     *
+     * @return void
+     */
+/*    public function test_entry_should_have_a_valid_first_name()
+    {
+        $this->withExceptionHandling();
+        $this->submitEntry(['firstname' => 'A',])
+            ->assertSessionHasErrors('firstname');
+    }*/
+
+   /**
      * An entry should have a last name
      *
      * @return void
