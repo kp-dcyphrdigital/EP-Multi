@@ -25,7 +25,7 @@ class StoreEntry extends FormRequest
     public function rules(Recaptcha $recaptcha)
     {
         return [
-            'firstname' => 'required',
+            'firstname' => 'required|min:2',
             'lastname' => 'required',
             'email' => 'required|email',
             'telephone' => 'required|digits:10',

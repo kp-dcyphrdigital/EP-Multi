@@ -169,12 +169,12 @@ class BasicFeatureTest extends TestCase
      *
      * @return void
      */
-/*    public function test_entry_should_have_a_valid_first_name()
+    public function test_entry_should_have_a_valid_first_name()
     {
         $this->withExceptionHandling();
         $this->submitEntry(['firstname' => 'A',])
             ->assertSessionHasErrors('firstname');
-    }*/
+    }
 
    /**
      * An entry should have a last name
