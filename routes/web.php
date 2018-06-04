@@ -1,9 +1,5 @@
 <?php
 
-Route::get('/test/test', function() {
-	dd ( Session()->all() );
-});
-
 // Auth::routes();
 // Authentication Routes...
 Route::get('/admin/login', 'Auth\LoginController@showLoginForm')->name('login');
