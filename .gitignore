@@ -13,3 +13,4 @@ yarn-error.log
 .env
 .env.prod
 notes.txt
+/public/ad.php
