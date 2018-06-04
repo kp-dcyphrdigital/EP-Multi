@@ -2,12 +2,14 @@
 
 namespace Tests\Feature;
 
+use Mockery;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Rules\Recaptcha;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use App\Rules\Recaptcha;
+
 
 
 class BasicFeatureTest extends TestCase
@@ -21,7 +23,7 @@ class BasicFeatureTest extends TestCase
         $this->competition = factory('App\Competition')->create();
 
         app()->singleton(Recaptcha::class, function () {
-            return \Mockery::mock(Recaptcha::class, function ($m) {
+            return Mockery::mock(Recaptcha::class, function ($m) {
                 $m->shouldReceive('passes')->andReturn(true);
             });
         });
